@@ -3,7 +3,7 @@
 Swift package for Native BL **security** types (`bl/security/*.proto`), global permissions decode, and **camera viewing policy**.
 
 **Platforms:** iOS 15+, macOS 13+, tvOS 17+, visionOS 1+  
-**Swift tools:** 6.2+
+**Swift tools:** 6.1+
 
 ## Dependencies
 
