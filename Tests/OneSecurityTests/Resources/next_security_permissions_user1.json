@@ -1,0 +1,27 @@
+{
+    "permissions": {
+        "7f08fe65-920a-4027-b1fe-dd486a0bc586": {
+            "unrestricted_access": "UNRESTRICTED_ACCESS_NO",
+            "maps_access": "MAP_ACCESS_FORBID",
+            "feature_access": [
+                "FEATURE_ACCESS_LAYOUTS_TAB",
+                "FEATURE_ACCESS_WEB_UI_LOGIN",
+                "FEATURE_ACCESS_GROUP_PANEL",
+                "FEATURE_ACCESS_OBJECT_PANEL_AND_CAMERA_SEARCH_PANEL"
+            ],
+            "alert_access": "ALERT_ACCESS_VIEW_ONLY",
+            "bookmark_access": "BOOKMARK_ACCESS_NO",
+            "user_rights_setup_access": "USER_RIGHTS_SETUP_ACCESS_NO",
+            "default_camera_access": "CAMERA_ACCESS_MONITORING_ARCHIVE_MANAGE",
+            "default_microphone_access": "MICROPHONE_ACCESS_FORBID",
+            "default_telemetry_priority": "TELEMETRY_PRIORITY_NO_ACCESS",
+            "default_archive_access": "ARCHIVE_ACCESS_FULL",
+            "default_acfa_access": "ACFA_ACCESS_FORBID",
+            "default_videowall_access": "VIDEOWALL_ACCESS_FORBID",
+            "archive_view_restrictions": {
+                "depth_hours": "0"
+            },
+            "default_macros_access": "MACROS_ACCESS_FULL"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "permissions": {
+        "9745b902-2a36-4035-bdd6-012e0dae66c0": {
+            "alert_access": "ALERT_ACCESS_FORBID",
+            "bookmark_access": "BOOKMARK_ACCESS_NO",
+            "default_archive_access": "ARCHIVE_ACCESS_FORBID",
+            "default_camera_access": "CAMERA_ACCESS_FORBID",
+            "default_microphone_access": "MICROPHONE_ACCESS_FORBID",
+            "default_videowall_access": "VIDEOWALL_ACCESS_FORBID",
+            "feature_access": ["FEATURE_ACCESS_FORBID_ALL"],
+            "maps_access": "MAP_ACCESS_FORBID",
+            "unrestricted_access": "UNRESTRICTED_ACCESS_YES"
+        }
+    }
+}

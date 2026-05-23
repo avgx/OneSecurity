@@ -1,26 +1,38 @@
-// swift-tools-version: 6.2
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version: 6.1
 
 import PackageDescription
 
 let package = Package(
     name: "OneSecurity",
+    defaultLocalization: "en",
+    platforms: [
+        .iOS(.v15),
+        .macOS(.v13),
+        .tvOS(.v17),
+        .visionOS(.v1),
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "OneSecurity",
             targets: ["OneSecurity"]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/avgx/RequestResponse", from: "2.0.1"),
+    ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "OneSecurity"
+            name: "OneSecurity",
+            dependencies: [
+                .product(name: "RequestResponse", package: "RequestResponse"),
+            ]
         ),
         .testTarget(
             name: "OneSecurityTests",
-            dependencies: ["OneSecurity"]
+            dependencies: ["OneSecurity"],
+            resources: [
+                .process("Resources"),
+            ]
         ),
     ]
 )
