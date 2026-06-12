@@ -35,7 +35,7 @@ public struct UserSecurityContext: Equatable, Sendable {
     /// Creates context from one decoded role permissions item.
     public init(globalPermissions: GlobalPermissions) {
         isUnrestricted = globalPermissions.unrestrictedAccess == .yes
-        prohibitAny = globalPermissions.restrictions?.personalData.prohibitsAnyProcessing ?? false
+        prohibitAny = globalPermissions.restrictions?.personalData?.prohibitsAnyProcessing ?? false
         forceWatermark = globalPermissions.restrictions?.forceUsernameWatermarking ?? false
         defaultCameraAccess = globalPermissions.defaultCameraAccess
         featureAccess = globalPermissions.featureAccess
