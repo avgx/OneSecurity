@@ -51,4 +51,14 @@ extension CameraAccess {
     public var canNotSeeArchive: Bool {
         [.forbid, .monitoring, .monitoringOnProtection].contains(self)
     }
+
+    /// Whether the role may arm/disarm this camera (proto: FULL or MONITORING_ARCHIVE_MANAGE).
+    public var canChangeArmState: Bool {
+        switch self {
+        case .full, .monitoringArchiveManage:
+            return true
+        default:
+            return false
+        }
+    }
 }

@@ -211,4 +211,16 @@ struct CameraAccessTests {
         #expect(!CameraAccess.onlyArchive.canSeeLive)
         #expect(CameraAccess.onlyArchive.canSeeArchive)
     }
+
+    @Test("arm/disarm allowed only for full and monitoringArchiveManage")
+    func canChangeArmState() {
+        #expect(CameraAccess.full.canChangeArmState)
+        #expect(CameraAccess.monitoringArchiveManage.canChangeArmState)
+        #expect(!CameraAccess.monitoring.canChangeArmState)
+        #expect(!CameraAccess.archive.canChangeArmState)
+        #expect(!CameraAccess.monitoringOnProtection.canChangeArmState)
+        #expect(!CameraAccess.onlyArchive.canChangeArmState)
+        #expect(!CameraAccess.forbid.canChangeArmState)
+        #expect(!CameraAccess.unspecified.canChangeArmState)
+    }
 }
