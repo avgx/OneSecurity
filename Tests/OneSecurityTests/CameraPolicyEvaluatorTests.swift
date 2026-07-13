@@ -9,6 +9,7 @@ struct CameraPolicyEvaluatorTests {
         prohibitAny: false,
         forceWatermark: false,
         defaultCameraAccess: .monitoring,
+        mapsAccess: .unspecified,
         featureAccess: [],
         alertAccess: .forbid
     )
@@ -18,6 +19,7 @@ struct CameraPolicyEvaluatorTests {
         prohibitAny: false,
         forceWatermark: false,
         defaultCameraAccess: .full,
+        mapsAccess: .unspecified,
         featureAccess: [],
         alertAccess: .forbid
     )
@@ -105,6 +107,7 @@ struct CameraPolicyEvaluatorTests {
             prohibitAny: false,
             forceWatermark: false,
             defaultCameraAccess: .forbid,
+            mapsAccess: .unspecified,
             featureAccess: [],
             alertAccess: .forbid
         )
@@ -128,6 +131,7 @@ struct CameraPolicyEvaluatorTests {
             prohibitAny: false,
             forceWatermark: true,
             defaultCameraAccess: .full,
+        mapsAccess: .unspecified,
             featureAccess: [],
             alertAccess: .forbid
         )
@@ -162,6 +166,7 @@ struct CameraPolicyEvaluatorTests {
             prohibitAny: true,
             forceWatermark: false,
             defaultCameraAccess: .full,
+        mapsAccess: .unspecified,
             featureAccess: [],
             alertAccess: .forbid
         )
@@ -183,6 +188,7 @@ struct CameraPolicyEvaluatorTests {
             prohibitAny: true,
             forceWatermark: false,
             defaultCameraAccess: .full,
+        mapsAccess: .unspecified,
             featureAccess: [],
             alertAccess: .forbid
         )

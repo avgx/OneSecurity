@@ -24,6 +24,7 @@ public enum SecurityApi {
                 prohibitAny: false,
                 forceWatermark: false,
                 defaultCameraAccess: .unspecified,
+                mapsAccess: .unspecified,
                 featureAccess: [],
                 alertAccess: .forbid
             )

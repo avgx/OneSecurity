@@ -13,6 +13,8 @@ public struct UserSecurityContext: Equatable, Sendable {
     public let forceWatermark: Bool
     /// Fallback when per-camera access is `.unspecified`.
     public let defaultCameraAccess: CameraAccess
+    /// Global maps tab access from role permissions.
+    public let mapsAccess: MapAccess
     private let featureAccess: [FeatureAccess]
     private let alertAccess: AlertAccess
 
@@ -21,6 +23,7 @@ public struct UserSecurityContext: Equatable, Sendable {
         prohibitAny: Bool,
         forceWatermark: Bool,
         defaultCameraAccess: CameraAccess,
+        mapsAccess: MapAccess,
         featureAccess: [FeatureAccess],
         alertAccess: AlertAccess
     ) {
@@ -28,6 +31,7 @@ public struct UserSecurityContext: Equatable, Sendable {
         self.prohibitAny = prohibitAny
         self.forceWatermark = forceWatermark
         self.defaultCameraAccess = defaultCameraAccess
+        self.mapsAccess = mapsAccess
         self.featureAccess = featureAccess
         self.alertAccess = alertAccess
     }
@@ -38,6 +42,7 @@ public struct UserSecurityContext: Equatable, Sendable {
         prohibitAny = globalPermissions.restrictions?.personalData?.prohibitsAnyProcessing ?? false
         forceWatermark = globalPermissions.restrictions?.forceUsernameWatermarking ?? false
         defaultCameraAccess = globalPermissions.defaultCameraAccess
+        mapsAccess = globalPermissions.mapsAccess
         featureAccess = globalPermissions.featureAccess
         alertAccess = globalPermissions.alertAccess
     }
