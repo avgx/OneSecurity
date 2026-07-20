@@ -26,7 +26,8 @@ public enum SecurityApi {
                 defaultCameraAccess: .unspecified,
                 mapsAccess: .unspecified,
                 featureAccess: [],
-                alertAccess: .forbid
+                alertAccess: .forbid,
+                bookmarkAccess: .unspecified
             )
         }
         return UserSecurityContext(globalPermissions: permissions)

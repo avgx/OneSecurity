@@ -11,7 +11,8 @@ struct MapPolicyEvaluatorTests {
         defaultCameraAccess: .monitoring,
         mapsAccess: .viewScale,
         featureAccess: [],
-        alertAccess: .forbid
+        alertAccess: .forbid,
+        bookmarkAccess: .no
     )
 
     @Test("view scale allows pan and zoom")
@@ -35,7 +36,8 @@ struct MapPolicyEvaluatorTests {
             defaultCameraAccess: .monitoring,
             mapsAccess: .viewOnly,
             featureAccess: [],
-            alertAccess: .forbid
+            alertAccess: .forbid,
+            bookmarkAccess: .no
         )
         let policy = MapPolicyEvaluator.evaluate(
             user: user,

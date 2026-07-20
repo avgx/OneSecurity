@@ -49,4 +49,28 @@ struct GlobalPermissionsDecodeTests {
         let user = response.context
         #expect(user.canViewLayouts)
     }
+
+    @Test("4_7 bookmark create-protect-edit-delete allows bookmarks")
+    func bookmarksCreateAccess() throws {
+        let response = try FixtureLoader.decodePermissions(resource: "next_security_permissions_4_7")
+        let user = response.context
+        #expect(user.canViewBookmarks)
+    }
+
+    @Test("user1 forbids bookmarks and maps")
+    func user1BookmarksAndMaps() throws {
+        let response = try FixtureLoader.decodePermissions(resource: "next_security_permissions_user1")
+        let user = response.context
+        #expect(!user.canViewBookmarks)
+        #expect(!user.canViewMaps)
+    }
+
+    @Test("admin unrestricted sees maps journal bookmarks")
+    func adminCapabilities() throws {
+        let response = try FixtureLoader.decodePermissions(resource: "next_security_permissions_admin")
+        let user = response.context
+        #expect(user.canViewMaps)
+        #expect(user.canViewSystemJournal)
+        #expect(user.canViewBookmarks)
+    }
 }

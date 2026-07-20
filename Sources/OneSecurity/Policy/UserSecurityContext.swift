@@ -17,6 +17,7 @@ public struct UserSecurityContext: Equatable, Sendable {
     public let mapsAccess: MapAccess
     private let featureAccess: [FeatureAccess]
     private let alertAccess: AlertAccess
+    private let bookmarkAccess: BookmarkAccess
 
     public init(
         isUnrestricted: Bool,
@@ -25,7 +26,8 @@ public struct UserSecurityContext: Equatable, Sendable {
         defaultCameraAccess: CameraAccess,
         mapsAccess: MapAccess,
         featureAccess: [FeatureAccess],
-        alertAccess: AlertAccess
+        alertAccess: AlertAccess,
+        bookmarkAccess: BookmarkAccess
     ) {
         self.isUnrestricted = isUnrestricted
         self.prohibitAny = prohibitAny
@@ -34,6 +36,7 @@ public struct UserSecurityContext: Equatable, Sendable {
         self.mapsAccess = mapsAccess
         self.featureAccess = featureAccess
         self.alertAccess = alertAccess
+        self.bookmarkAccess = bookmarkAccess
     }
 
     /// Creates context from one decoded role permissions item.
@@ -45,6 +48,7 @@ public struct UserSecurityContext: Equatable, Sendable {
         mapsAccess = globalPermissions.mapsAccess
         featureAccess = globalPermissions.featureAccess
         alertAccess = globalPermissions.alertAccess
+        bookmarkAccess = globalPermissions.bookmarkAccess
     }
 
     /// Layouts tab visibility (`FEATURE_ACCESS_LAYOUTS_TAB`).
@@ -57,6 +61,29 @@ public struct UserSecurityContext: Equatable, Sendable {
     public var canViewGroups: Bool {
         guard !isUnrestricted else { return true }
         return featureAccess.contains(.groupPanel)
+    }
+
+    /// System journal / audit visibility (`FEATURE_ACCESS_SYSTEM_JOURNAL`).
+    public var canViewSystemJournal: Bool {
+        guard !isUnrestricted else { return true }
+        return featureAccess.contains(.systemJournal)
+    }
+
+    /// Maps browser mode visibility (`maps_access` view levels).
+    public var canViewMaps: Bool {
+        guard !isUnrestricted else { return true }
+        return mapsAccess.canView
+    }
+
+    /// Bookmarks journal visibility (`bookmark_access` create and above).
+    public var canViewBookmarks: Bool {
+        guard !isUnrestricted else { return true }
+        switch bookmarkAccess {
+        case .create, .createProtect, .createProtectEditDelete:
+            return true
+        case .no, .unspecified:
+            return false
+        }
     }
 
     /// Alerts list visibility (view-only or full alert access).

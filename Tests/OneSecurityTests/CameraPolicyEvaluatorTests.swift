@@ -11,7 +11,8 @@ struct CameraPolicyEvaluatorTests {
         defaultCameraAccess: .monitoring,
         mapsAccess: .unspecified,
         featureAccess: [],
-        alertAccess: .forbid
+        alertAccess: .forbid,
+        bookmarkAccess: .no
     )
 
     private let fullUser = UserSecurityContext(
@@ -21,7 +22,8 @@ struct CameraPolicyEvaluatorTests {
         defaultCameraAccess: .full,
         mapsAccess: .unspecified,
         featureAccess: [],
-        alertAccess: .forbid
+        alertAccess: .forbid,
+        bookmarkAccess: .no
     )
 
     @Test("unspecified object inherits global default")
@@ -109,7 +111,8 @@ struct CameraPolicyEvaluatorTests {
             defaultCameraAccess: .forbid,
             mapsAccess: .unspecified,
             featureAccess: [],
-            alertAccess: .forbid
+            alertAccess: .forbid,
+            bookmarkAccess: .no
         )
         let policy = CameraPolicyEvaluator.evaluate(
             user: user,
@@ -133,7 +136,8 @@ struct CameraPolicyEvaluatorTests {
             defaultCameraAccess: .full,
         mapsAccess: .unspecified,
             featureAccess: [],
-            alertAccess: .forbid
+            alertAccess: .forbid,
+            bookmarkAccess: .no
         )
         let policy = CameraPolicyEvaluator.evaluate(
             user: user,
@@ -168,7 +172,8 @@ struct CameraPolicyEvaluatorTests {
             defaultCameraAccess: .full,
         mapsAccess: .unspecified,
             featureAccess: [],
-            alertAccess: .forbid
+            alertAccess: .forbid,
+            bookmarkAccess: .no
         )
         let policy = CameraPolicyEvaluator.evaluate(
             user: user,
@@ -190,7 +195,8 @@ struct CameraPolicyEvaluatorTests {
             defaultCameraAccess: .full,
         mapsAccess: .unspecified,
             featureAccess: [],
-            alertAccess: .forbid
+            alertAccess: .forbid,
+            bookmarkAccess: .no
         )
         let policy = CameraPolicyEvaluator.evaluate(
             user: user,
